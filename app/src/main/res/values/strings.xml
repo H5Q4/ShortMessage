@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">短信息</string>
+    <string name="accept">确定</string>
+    <string name="read_sms">读短信</string>
+    <string name="write_sms">写短信</string>
+    <string name="voice_msg_box">语音信箱</string>
+    <string name="sms_tpl">短信模板</string>
+    <string name="sms_settings">短信设置</string>
+    <string name="sms_broadcasting">短信广播</string>
+    <string name="delete_confirm">删除？</string>
+    <string name="inbox">收件箱</string>
+    <string name="sent_box">发件箱</string>
+    <string name="setting_option">设置选项</string>
+    <string name="status_report">状态报告</string>
+    <string name="storage_location">存储位置</string>
+    <string name="storage_status">存储器状态</string>
+    <string name="receive_broadcast">接收广播</string>
+    <string name="channel">信道</string>
+    <string name="language">语言</string>
+    <string name="read">读取</string>
+    <string name="placeholder_total_space_in_sim">SIM卡总空间</string>
+    <string name="placeholder_total_space_in_phone">手机总空间</string>
+    <string name="placeholder_inbox">收件箱</string>
+    <string name="placeholder_sent_box">发件箱</string>
+    <string name="voice_msg_box_number">语音信箱号码</string>
+    <string name="call_voice_msg_box">呼叫语音信箱</string>
+    <string name="empty_sms">空信息</string>
+    <string name="send_only">仅发送</string>
+    <string name="save_only">仅存储</string>
+    <string name="send_and_save">发送并存储</string>
+</resources>

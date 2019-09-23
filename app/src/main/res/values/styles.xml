@@ -1,0 +1,9 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="@android:style/Theme.Material.NoActionBar.Fullscreen">
+        <item name="android:colorControlHighlight">@color/colorControlHighlight</item>
+        <item name="android:colorBackground">@color/colorThemeBg</item>
+    </style>
+
+</resources>

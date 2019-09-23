@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Short Message</string>
+    <string name="accept">Accept</string>
+    <string name="read_sms">SMS Read</string>
+    <string name="write_sms">SMS Write</string>
+    <string name="voice_msg_box">Voice Mail</string>
+    <string name="sms_tpl">SMS Template</string>
+    <string name="sms_settings">SMS Settings</string>
+    <string name="sms_broadcasting">Broadcast SMS</string>
+    <string name="delete_confirm">Delete？</string>
+    <string name="inbox">Inbox Message</string>
+    <string name="sent_box">Outbox Message</string>
+    <string name="setting_option">Setting</string>
+    <string name="status_report">Status Report</string>
+    <string name="storage_location">Store Position</string>
+    <string name="storage_status">Storage Status</string>
+    <string name="receive_broadcast">Setup</string>
+    <string name="channel">Channel</string>
+    <string name="language">Language</string>
+    <string name="read">Read</string>
+    <string name="placeholder_total_space_in_sim">In SIM: %d</string>
+    <string name="placeholder_total_space_in_phone">In phone: %d</string>
+    <string name="placeholder_inbox">Inbox message: %d</string>
+    <string name="placeholder_sent_box">Outbox message: %d</string>
+    <string name="voice_msg_box_number">Set VM Server Number</string>
+    <string name="call_voice_msg_box">Dial to VM Server</string>
+    <string name="empty_sms">Empty content</string>
+    <string name="send_only">仅发送</string>
+    <string name="save_only">仅存储</string>
+    <string name="send_and_save">发送并存储</string>
+</resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".StorageStateActivity">
+
+    <TextView
+        android:id="@+id/simCapacityTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/placeholder_total_space_in_sim"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/simInboxTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/placeholder_inbox"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/simSentBoxTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/placeholder_sent_box"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/phoneCapacityTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/placeholder_total_space_in_phone"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/phoneInboxTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/placeholder_inbox"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/phoneSentBoxTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/placeholder_sent_box"
+        android:textSize="18sp" />
+</LinearLayout>
