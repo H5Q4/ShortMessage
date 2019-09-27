@@ -3,6 +3,7 @@ package com.szhr.shortmessage.base;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -85,6 +86,9 @@ public class BaseListActivity extends BaseActivity {
 
     protected void addListItem(String name, String extra) {
         Map<String, String> item = new HashMap<>();
+        if (TextUtils.isEmpty(extra)) {
+            extra = getString(R.string.none);
+        }
         item.put(ITEM_NAME, name);
         item.put(ITEM_EXTRA, extra);
         items.add(item);

@@ -28,4 +28,7 @@
     <string name="send_only">仅发送</string>
     <string name="save_only">仅存储</string>
     <string name="send_and_save">发送并存储</string>
+    <string name="none">无</string>
+    <string name="empty_inbox">收件箱空</string>
+    <string name="empty_sent_box">发件箱空</string>
 </resources>
