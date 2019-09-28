@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 
 import com.szhr.shortmessage.R;
+import com.szhr.shortmessage.util.DensityUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,6 +30,8 @@ public class BaseListActivity extends BaseActivity {
 
     public static final String ITEM_NAME = "name";
     public static final String ITEM_EXTRA = "extra";
+
+    private int textSize = DensityUtils.dp2px(this, 18);
 
     protected ListView listView;
     protected int currentSelectedPosition;
@@ -82,6 +85,10 @@ public class BaseListActivity extends BaseActivity {
             }
         });
 //        listView.setSelection(0);
+    }
+
+    protected void setNameTextSize(int size) {
+        this.textSize = size;
     }
 
     protected void addListItem(String name, String extra) {
@@ -191,6 +198,7 @@ public class BaseListActivity extends BaseActivity {
             }
             Map<String, String> item = items.get(i);
 
+            holder.nameTv.setTextSize(textSize);
             holder.nameTv.setText(item.get(ITEM_NAME));
             holder.extraTv.setText(item.get(ITEM_EXTRA));
             holder.indicatorTv.setText("");
