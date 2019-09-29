@@ -20,7 +20,7 @@ public class MainActivity extends BaseListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setTitle(getString(R.string.voice_msg_box));
+        setTitle(getString(R.string.app_name));
 
         askForContactPermission();
 

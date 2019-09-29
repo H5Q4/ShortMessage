@@ -1,5 +1,6 @@
 package com.szhr.shortmessage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -7,7 +8,7 @@ import com.szhr.shortmessage.base.BaseListActivity;
 
 public class SendOptionsActivity extends BaseListActivity {
 
-    public static final String SMS = "sms";
+    public static final String SEND_OPTION = "send_option";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +29,13 @@ public class SendOptionsActivity extends BaseListActivity {
 
     @Override
     protected void onClickListItem(View view, int position) {
-        switch (position) {
-            case 0:
+        String msgBody = getIntent().getStringExtra(EditMmsActivity.MSG_CONTENT);
+        Intent intent = new Intent(this, InputPhoneNoActivity.class);
+        intent.putExtra(EditMmsActivity.MSG_CONTENT, msgBody);
+        intent.putExtra(SEND_OPTION, position);
 
-        }
+        startActivity(intent);
+
+        finish();
     }
 }

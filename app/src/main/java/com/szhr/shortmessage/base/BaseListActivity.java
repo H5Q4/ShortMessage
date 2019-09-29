@@ -31,7 +31,7 @@ public class BaseListActivity extends BaseActivity {
     public static final String ITEM_NAME = "name";
     public static final String ITEM_EXTRA = "extra";
 
-    private int textSize = DensityUtils.dp2px(this, 18);
+    private int textSize;
 
     protected ListView listView;
     protected int currentSelectedPosition;
@@ -46,6 +46,8 @@ public class BaseListActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_list);
+
+        textSize = 18;
 
         listView = findViewById(R.id.listView);
         listView.setItemsCanFocus(true);

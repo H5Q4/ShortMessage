@@ -16,8 +16,8 @@ public class MsgBoxesActivity extends BaseListActivity {
 
         setTitle(getString(R.string.read_sms));
 
-        inboxCount = SmsOperations.getSmsCount(this, SmsOperations.Folder.INBOX);
-        sentCount = SmsOperations.getSmsCount(this, SmsOperations.Folder.OUTBOX);
+        inboxCount = SmsOperations.getInboxCount(this);
+        sentCount = SmsOperations.getOutboxCount(this);
 
         addListItem(getString(R.string.inbox), inboxCount == 0 ? "" : String.valueOf(inboxCount));
         addListItem(getString(R.string.sent_box), sentCount == 0 ? "" : String.valueOf(sentCount));

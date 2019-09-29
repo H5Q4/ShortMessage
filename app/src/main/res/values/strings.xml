@@ -31,4 +31,7 @@
     <string name="none">无</string>
     <string name="empty_inbox">收件箱空</string>
     <string name="empty_sent_box">发件箱空</string>
+    <string name="input_phone_no">输入号码:</string>
+    <string name="find">查找</string>
+    <string name="invalid_input">无效输入</string>
 </resources>

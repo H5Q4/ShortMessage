@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MsgListActivity"></activity>
+        <activity android:name=".InputPhoneNoActivity"></activity>
+        <activity android:name=".MsgListActivity" />
         <activity android:name=".SendOptionsActivity" />
         <activity android:name=".VoiceMsgOptionActivity" />
         <activity android:name=".BroadcastOptionsActivity" />
@@ -25,9 +26,9 @@
         <activity android:name=".EditMmsActivity" />
         <activity android:name=".StorageStateActivity" />
     </application>
-    <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
-
     <uses-permission android:name="android.permission.READ_SMS" />
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
 </manifest>
