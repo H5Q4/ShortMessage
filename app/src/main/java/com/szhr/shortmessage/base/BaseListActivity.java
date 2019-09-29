@@ -47,7 +47,7 @@ public class BaseListActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_list);
 
-        textSize = 18;
+        textSize = 0;
 
         listView = findViewById(R.id.listView);
         listView.setItemsCanFocus(true);
@@ -200,7 +200,9 @@ public class BaseListActivity extends BaseActivity {
             }
             Map<String, String> item = items.get(i);
 
-            holder.nameTv.setTextSize(textSize);
+            if (textSize > 0) {
+                holder.nameTv.setTextSize(textSize);
+            }
             holder.nameTv.setText(item.get(ITEM_NAME));
             holder.extraTv.setText(item.get(ITEM_EXTRA));
             holder.indicatorTv.setText("");

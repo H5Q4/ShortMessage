@@ -1,5 +1,6 @@
 package com.szhr.shortmessage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -27,14 +28,22 @@ public class MsgBoxesActivity extends BaseListActivity {
 
     @Override
     protected void onClickListItem(View view, int position) {
+        Intent intent = new Intent(this, MsgListActivity.class);
+
         if (position == 0) {
             if (inboxCount == 0) {
                 toast(getString(R.string.empty_inbox));
+                return;
             }
+
+            intent.putExtra(MsgListActivity.KEY_TYPE, MsgListActivity.INBOX);
         } else {
             if (sentCount == 0) {
                 toast(getString(R.string.empty_sent_box));
             }
+            intent.putExtra(MsgListActivity.KEY_TYPE, MsgListActivity.OUTBOX);
         }
+
+        startActivity(intent);
     }
 }
