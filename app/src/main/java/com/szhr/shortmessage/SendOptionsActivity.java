@@ -29,9 +29,9 @@ public class SendOptionsActivity extends BaseListActivity {
 
     @Override
     protected void onClickListItem(View view, int position) {
-        String msgBody = getIntent().getStringExtra(EditMmsActivity.MSG_CONTENT);
+        String msgBody = getIntent().getStringExtra(EditSmsActivity.MSG_CONTENT);
         Intent intent = new Intent(this, InputPhoneNoActivity.class);
-        intent.putExtra(EditMmsActivity.MSG_CONTENT, msgBody);
+        intent.putExtra(EditSmsActivity.MSG_CONTENT, msgBody);
         intent.putExtra(SEND_OPTION, position);
 
         startActivity(intent);

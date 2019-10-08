@@ -35,4 +35,9 @@
     <string name="input_phone_no">输入号码</string>
     <string name="find">查找</string>
     <string name="invalid_input">无效输入</string>
+    <string name="options">Options</string>
+    <string name="delete">Delete</string>
+    <string name="forward">转发</string>
+    <string name="edit">编辑</string>
+    <string name="delete_all">全部删除</string>
 </resources>

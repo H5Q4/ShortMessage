@@ -83,6 +83,7 @@ public class SmsOperations {
             totalSMS = c.getCount();
             if (c.moveToFirst()) {
                 for (int j = 0; j < totalSMS; j++) {
+                    int id = c.getInt(c.getColumnIndexOrThrow(Telephony.Sms._ID));
                     String smsDate = c.getString(c.getColumnIndexOrThrow(Telephony.Sms.DATE));
                     String sender = c.getString(c.getColumnIndexOrThrow(Telephony.Sms.ADDRESS));
                     String body = c.getString(c.getColumnIndexOrThrow(Telephony.Sms.BODY));
@@ -97,6 +98,7 @@ public class SmsOperations {
                     }
 
                     Sms sms = new Sms();
+                    sms.id = id;
                     sms.sender = sender;
                     sms.content = body;
                     sms.date = dateFormat;
@@ -130,5 +132,30 @@ public class SmsOperations {
         // Put the actual thread id here. 0 if there is no thread yet.
         values.put("thread_id", "0");
         context.getContentResolver().insert(Uri.parse("content://sms/draft"), values);
+    }
+
+    public static void deleteSms(Context context, int id) {
+        Uri uri = Telephony.Sms.CONTENT_URI;
+        Cursor c = context.getContentResolver().query(uri,
+                new String[]{Telephony.Sms._ID}, null,
+                null, null); // only query _ID and not everything
+        if (c == null) return;
+
+        while (c.moveToNext()) {
+            // Delete the SMS
+            int pid = c.getInt(c.getColumnIndexOrThrow(Telephony.Sms._ID)); // Get _id;
+            if (id == pid) {
+                uri = Telephony.Sms.CONTENT_URI.buildUpon().appendPath(String.valueOf(pid)).build();
+                context.getContentResolver().delete(uri,
+                        null, null);
+            }
+
+        }
+        c.close();
+    }
+
+    public static void deleteAll(Context context) {
+        context.getContentResolver().delete(Telephony.Sms.CONTENT_URI,
+                null, null);
     }
 }

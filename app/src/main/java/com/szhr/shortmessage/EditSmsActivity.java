@@ -8,7 +8,7 @@ import android.widget.EditText;
 
 import com.szhr.shortmessage.base.BaseActivity;
 
-public class EditMmsActivity extends BaseActivity {
+public class EditSmsActivity extends BaseActivity {
     public static final String MSG_CONTENT = "msg_content";
 
     private EditText contentEt;
@@ -21,6 +21,13 @@ public class EditMmsActivity extends BaseActivity {
         setTitle(getString(R.string.write_sms));
 
         contentEt = findViewById(R.id.contentEt);
+
+        String content = getIntent().getStringExtra(MSG_CONTENT);
+
+        if (!TextUtils.isEmpty(content)) {
+            contentEt.setText(content);
+            contentEt.setSelection(content.length());
+        }
     }
 
     @Override

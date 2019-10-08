@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InputPhoneNoActivity"></activity>
+        <activity android:name=".DeleteSmsActivity"></activity>
+        <activity android:name=".ReadSmsOptionsActivity" />
+        <activity android:name=".ReadSmsActivity" />
+        <activity android:name=".InputPhoneNoActivity" />
         <activity android:name=".MsgListActivity" />
         <activity android:name=".SendOptionsActivity" />
         <activity android:name=".VoiceMsgOptionActivity" />
@@ -23,7 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EditMmsActivity" />
+        <activity android:name=".EditSmsActivity" />
         <activity android:name=".StorageStateActivity" />
     </application>
     <uses-permission android:name="android.permission.RECEIVE_SMS" />

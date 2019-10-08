@@ -45,7 +45,7 @@ public class MainActivity extends BaseListActivity {
                 startActivity(new Intent(this, MsgBoxesActivity.class));
                 break;
             case 1:
-                startActivity(new Intent(this, EditMmsActivity.class));
+                startActivity(new Intent(this, EditSmsActivity.class));
                 break;
             case 2:
                 startActivity(new Intent(this, VoiceMsgOptionActivity.class));

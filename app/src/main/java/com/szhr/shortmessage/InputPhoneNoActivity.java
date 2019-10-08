@@ -30,7 +30,7 @@ public class InputPhoneNoActivity extends BaseActivity {
             return;
         }
 
-        String body = getIntent().getStringExtra(EditMmsActivity.MSG_CONTENT);
+        String body = getIntent().getStringExtra(EditSmsActivity.MSG_CONTENT);
         int type = getIntent().getIntExtra(SendOptionsActivity.SEND_OPTION, 0);
         switch (type) {
             case 0:
