@@ -2,6 +2,7 @@ package com.szhr.shortmessage;
 
 import android.app.PendingIntent;
 import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -83,20 +84,20 @@ public class SmsOperations {
             if (c.moveToFirst()) {
                 for (int j = 0; j < totalSMS; j++) {
                     String smsDate = c.getString(c.getColumnIndexOrThrow(Telephony.Sms.DATE));
-                    String number = c.getString(c.getColumnIndexOrThrow(Telephony.Sms.PERSON));
+                    String sender = c.getString(c.getColumnIndexOrThrow(Telephony.Sms.ADDRESS));
                     String body = c.getString(c.getColumnIndexOrThrow(Telephony.Sms.BODY));
                     int status = c.getInt(c.getColumnIndexOrThrow(Telephony.Sms.STATUS));
-                    int type =c.getInt(c.getColumnIndexOrThrow(Telephony.Sms.TYPE));
-                    Date dateFormat= new Date(Long.valueOf(smsDate));
+                    int type = c.getInt(c.getColumnIndexOrThrow(Telephony.Sms.TYPE));
+                    Date dateFormat = new Date(Long.valueOf(smsDate));
 
                     if (Folder.INBOX.equals(folder) &&
                             c.getInt(c.getColumnIndexOrThrow(Telephony.Sms.TYPE))
                                     == Telephony.Sms.MESSAGE_TYPE_INBOX) {
-                       continue;
+                        continue;
                     }
 
                     Sms sms = new Sms();
-                    sms.receiver = number;
+                    sms.sender = sender;
                     sms.content = body;
                     sms.date = dateFormat;
                     sms.status = status;
@@ -114,5 +115,20 @@ public class SmsOperations {
 
         return result;
 
+    }
+
+    public static void saveDraft(Context context, Sms sms) {
+        //Store the message in the draft folder so that it shows in Messaging apps.
+        ContentValues values = new ContentValues();
+        // Message address.
+        values.put("address", sms.sender);
+        // Message body.
+        values.put("body", sms.content);
+        // Date of the draft message.
+        values.put("date", String.valueOf(System.currentTimeMillis()));
+        values.put("type", "3");
+        // Put the actual thread id here. 0 if there is no thread yet.
+        values.put("thread_id", "0");
+        context.getContentResolver().insert(Uri.parse("content://sms/draft"), values);
     }
 }

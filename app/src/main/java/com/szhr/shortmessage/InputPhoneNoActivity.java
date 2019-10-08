@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.widget.EditText;
 
 import com.szhr.shortmessage.base.BaseActivity;
+import com.szhr.shortmessage.model.Sms;
 
 public class InputPhoneNoActivity extends BaseActivity {
 
@@ -36,6 +37,10 @@ public class InputPhoneNoActivity extends BaseActivity {
                 SmsOperations.sendMessage(this, number,body, false);
                 break;
             case 1:
+                Sms sms = new Sms();
+                sms.content = body;
+                sms.receiver = number;
+                SmsOperations.saveDraft(this, sms);
                 break;
             case 2:
                 SmsOperations.sendMessage(this, number, body, true);

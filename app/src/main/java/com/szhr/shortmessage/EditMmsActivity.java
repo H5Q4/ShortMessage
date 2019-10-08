@@ -18,7 +18,7 @@ public class EditMmsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_mms);
 
-        setTitle(getString(R.string.read_sms));
+        setTitle(getString(R.string.write_sms));
 
         contentEt = findViewById(R.id.contentEt);
     }

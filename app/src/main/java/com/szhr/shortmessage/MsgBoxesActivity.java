@@ -40,6 +40,7 @@ public class MsgBoxesActivity extends BaseListActivity {
         } else {
             if (sentCount == 0) {
                 toast(getString(R.string.empty_sent_box));
+                return;
             }
             intent.putExtra(MsgListActivity.KEY_TYPE, MsgListActivity.OUTBOX);
         }
