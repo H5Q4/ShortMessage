@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Telephony;
 import android.view.View;
 
 import com.szhr.shortmessage.base.BaseListActivity;
@@ -36,6 +37,7 @@ public class MainActivity extends BaseListActivity {
         setListData(menus);
 
         setIndicatorType(INDICATOR_TYPE_INDEX);
+
     }
 
     @Override

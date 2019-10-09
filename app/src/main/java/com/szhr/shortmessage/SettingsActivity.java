@@ -29,6 +29,9 @@ public class SettingsActivity extends BaseListActivity {
     @Override
     protected void onClickListItem(View view, int position) {
         switch (position) {
+            case 0:
+                startActivity(new Intent(this, SettingOptionsActivity.class));
+                break;
             case 3:
                 startActivity(new Intent(this, StorageStateActivity.class));
                 break;

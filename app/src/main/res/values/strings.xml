@@ -39,4 +39,20 @@
     <string name="forward">转发</string>
     <string name="edit">编辑</string>
     <string name="delete_all">全部删除</string>
+    <string name="please_wait">请稍后...</string>
+    <string name="smsc">短信中心</string>
+    <string name="sms_type">短信类型</string>
+    <string name="validity_period">有效期</string>
+    <string name="input_sms_center_no">请输入短信中心号码：</string>
+    <string name="sms_type_1">文本</string>
+    <string name="sms_type_2">传真</string>
+    <string name="sms_type_3">邮件</string>
+    <string name="sms_type_4">自定义</string>
+    <string name="sms_period_1">1小时</string>
+    <string name="sms_period_2">6小时</string>
+    <string name="sms_period_3">12小时</string>
+    <string name="sms_period_4">24小时</string>
+    <string name="sms_period_5">72小时</string>
+    <string name="sms_period_6">1星期</string>
+    <string name="sms_period_7">最长</string>
 </resources>

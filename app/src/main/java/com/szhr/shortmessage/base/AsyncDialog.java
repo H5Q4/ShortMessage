@@ -1,19 +1,24 @@
 package com.szhr.shortmessage.base;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
+import android.app.AlertDialog;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
+
+import com.szhr.shortmessage.R;
 
 
-public class BaseAsyncTask {
-    private ProgressDialog mProgressDialog;
+public class AsyncDialog {
+    private AlertDialog dialog;
     private final Activity mActivity;
     private final Handler mHandler;
     private static final int DELAY_TIME_SHOW = 500;
     private int mDelayTime = DELAY_TIME_SHOW;
 
-    public BaseAsyncTask(Activity activity) {
+    public AsyncDialog(Activity activity) {
         mActivity = activity;
         mHandler = new Handler();
     }
@@ -35,30 +40,30 @@ public class BaseAsyncTask {
     public void runAsync(final Runnable backgroundTask,
                          final Runnable postExecuteTask, final int dialogStringId) {
         new ModalDialogAsyncTask(dialogStringId, postExecuteTask)
-                .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Runnable[] {backgroundTask});
+                .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, backgroundTask);
     }
 
     // Shows the activity's progress spinner. Should be canceled if exiting the activity.
     private Runnable mShowProgressDialogRunnable = new Runnable() {
         @Override
         public void run() {
-            if (mProgressDialog != null) {
-                mProgressDialog.show();
+            if (dialog != null) {
+                dialog.show();
             }
         }
     };
 
     public void clearPendingProgressDialog() {
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.dismiss();
+        if (dialog != null && dialog.isShowing()) {
+            dialog.dismiss();
         }
         // remove any callback to display a progress spinner
         mHandler.removeCallbacks(mShowProgressDialogRunnable);
         // clear the dialog so any pending dialog.dismiss() call can be avoided
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.dismiss();
+        if (dialog != null && dialog.isShowing()) {
+            dialog.dismiss();
         }
-        mProgressDialog = null;
+        dialog = null;
     }
 
     /**
@@ -68,7 +73,7 @@ public class BaseAsyncTask {
      *
      * This AsyncTask must be instantiated and invoked on the UI thread.
      *
-     * TODO: Need to implement a way for the background thread to pass a result to
+     * Need to implement a way for the background thread to pass a result to
      * the onPostExecute thread. AsyncTask already provides this functionality.
      */
     private class ModalDialogAsyncTask extends AsyncTask<Runnable, Void, Void> {
@@ -81,21 +86,25 @@ public class BaseAsyncTask {
                                     final Runnable postExecuteTask) {
             mPostExecuteTask = postExecuteTask;
             // lazy initialization of progress dialog for loading attachments
-            if (mProgressDialog == null) {
-                mProgressDialog = createProgressDialog();
+            if (dialog == null) {
+                dialog = createProgressDialog(dialogStringId);
             }
-            mProgressDialog.setMessage(mActivity.getText(dialogStringId));
         }
 
         /**
          * Initializes the progress dialog with its intended settings.
          */
-        private ProgressDialog createProgressDialog() {
-            ProgressDialog dialog = new ProgressDialog(mActivity);
-            dialog.setIndeterminate(true);
-            dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            dialog.setCanceledOnTouchOutside(false);
-            dialog.setCancelable(false);
+        private AlertDialog createProgressDialog(int stringId) {
+            View view = LayoutInflater.from(mActivity).inflate(R.layout.base_dialog, null);
+
+            TextView textView = view.findViewById(R.id.text1);
+            textView.setText(mActivity.getString(stringId));
+            AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
+            builder.setView(view);
+            builder.setCancelable(false); //返回键dismiss
+
+            AlertDialog dialog = builder.create();
+            dialog.setCanceledOnTouchOutside(false);   //失去焦点dismiss
             return dialog;
         }
 
@@ -141,8 +150,8 @@ public class BaseAsyncTask {
             if (mActivity.isFinishing()) {
                 return;
             }
-            if (mProgressDialog != null && mProgressDialog.isShowing()) {
-                mProgressDialog.dismiss();
+            if (dialog != null && dialog.isShowing()) {
+                dialog.dismiss();
             }
             if (mPostExecuteTask != null) {
                 mPostExecuteTask.run();

@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DeleteSmsActivity"></activity>
+        <activity android:name=".SmsValidityPeriodActivity"></activity>
+        <activity android:name=".MsgTypesActivity" />
+        <activity android:name=".EditSmscActivity" />
+        <activity android:name=".SettingOptionsActivity" />
+        <activity android:name=".DeleteSmsActivity" />
         <activity android:name=".ReadSmsOptionsActivity" />
         <activity android:name=".ReadSmsActivity" />
         <activity android:name=".InputPhoneNoActivity" />
@@ -29,9 +33,9 @@
         <activity android:name=".EditSmsActivity" />
         <activity android:name=".StorageStateActivity" />
     </application>
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
-
     <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
 </manifest>
