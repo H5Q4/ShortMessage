@@ -20,9 +20,14 @@ public class SettingsActivity extends BaseListActivity {
                 Constants.SMS_DELIVERY_REPORT_MODE, false);
         String reportExtra = toggleReport ? getString(R.string.open) : getString(R.string.close);
 
+        int storageLocation = SharedPrefsUtils.getIntegerPreference(this,
+                Constants.SMS_STORE_CARD, 1);
+        String locationExtra = storageLocation == 1 ? getString(R.string.phone_first) :
+                getString(R.string.sim_first);
+
         addListItem(getString(R.string.setting_option));
         addListItem(getString(R.string.status_report), reportExtra);
-        addListItem(getString(R.string.storage_location));
+        addListItem(getString(R.string.storage_location), locationExtra);
         addListItem(getString(R.string.storage_status));
 
         setIndicatorType(INDICATOR_TYPE_CYCLE);
@@ -36,6 +41,9 @@ public class SettingsActivity extends BaseListActivity {
                 break;
             case 1:
                 startActivityForResult(new Intent(this, ReportToggleActivity.class), position);
+                break;
+            case 2:
+                startActivityForResult(new Intent(this, StorageLocationActivity.class), position);
                 break;
             case 3:
                 startActivity(new Intent(this, StorageStateActivity.class));

@@ -32,19 +32,18 @@ public class SettingOptionsActivity extends BaseListActivity {
                 getString(R.string.sms_period_3),
                 getString(R.string.sms_period_4),
                 getString(R.string.sms_period_5),
-                getString(R.string.sms_period_6),
-                getString(R.string.sms_period_7)
+                getString(R.string.sms_period_6)
         };
 
         int smsType = SharedPrefsUtils.getIntegerPreference(this,
-                Constants.SMS_TYPE, 3);
+                Constants.SMS_TYPE, 4);
         int smsPeriod = SharedPrefsUtils.getIntegerPreference(this,
                 Constants.SMS_VALIDITY_PERIOD, 6);
 
         // TODO 获取短信中心号码: SmsManager.getSmsCenter()
         addListItem(getString(R.string.smsc), "+8613387556809");
-        addListItem(getString(R.string.sms_type), types[smsType]);
-        addListItem(getString(R.string.validity_period), periods[smsPeriod]);
+        addListItem(getString(R.string.sms_type), types[smsType - 1]);
+        addListItem(getString(R.string.validity_period), periods[smsPeriod - 1]);
 
         setIndicatorType(INDICATOR_TYPE_INDEX);
 

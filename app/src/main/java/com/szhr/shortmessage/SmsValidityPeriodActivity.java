@@ -22,8 +22,7 @@ public class SmsValidityPeriodActivity extends BaseListActivity {
                 getString(R.string.sms_period_3),
                 getString(R.string.sms_period_4),
                 getString(R.string.sms_period_5),
-                getString(R.string.sms_period_6),
-                getString(R.string.sms_period_7)
+                getString(R.string.sms_period_6)
         };
 
         setListData(periods);
@@ -32,12 +31,12 @@ public class SmsValidityPeriodActivity extends BaseListActivity {
 
         int smsPeriod = SharedPrefsUtils.getIntegerPreference(this,
                 Constants.SMS_VALIDITY_PERIOD, 6);
-        listView.setSelection(smsPeriod);
+        listView.setSelection(smsPeriod - 1);
     }
 
     @Override
     protected void onClickListItem(View view, int position) {
-        SharedPrefsUtils.setIntegerPreference(this, Constants.SMS_VALIDITY_PERIOD, position);
+        SharedPrefsUtils.setIntegerPreference(this, Constants.SMS_VALIDITY_PERIOD, position + 1);
         Intent intent = new Intent();
         intent.putExtra(ITEM_EXTRA, periods[position]);
         setResult(RESULT_OK, intent);

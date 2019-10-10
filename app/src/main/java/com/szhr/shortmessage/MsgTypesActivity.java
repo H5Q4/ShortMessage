@@ -29,14 +29,14 @@ public class MsgTypesActivity extends BaseListActivity {
         setIndicatorType(INDICATOR_TYPE_CYCLE);
 
         int smsType = SharedPrefsUtils.getIntegerPreference(this,
-                Constants.SMS_TYPE, 3);
+                Constants.SMS_TYPE, 4);
 
-        listView.setSelection(smsType);
+        listView.setSelection(smsType - 1);
     }
 
     @Override
     protected void onClickListItem(View view, int position) {
-        SharedPrefsUtils.setIntegerPreference(this, Constants.SMS_TYPE, position);
+        SharedPrefsUtils.setIntegerPreference(this, Constants.SMS_TYPE, position + 1);
         Intent intent = new Intent();
         intent.putExtra(ITEM_EXTRA, types[position]);
         setResult(RESULT_OK, intent);

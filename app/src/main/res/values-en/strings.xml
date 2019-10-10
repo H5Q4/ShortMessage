@@ -50,12 +50,13 @@
     <string name="sms_type_3">邮件</string>
     <string name="sms_type_4">自定义</string>
     <string name="sms_period_1">1小时</string>
-    <string name="sms_period_2">6小时</string>
-    <string name="sms_period_3">12小时</string>
-    <string name="sms_period_4">24小时</string>
-    <string name="sms_period_5">72小时</string>
-    <string name="sms_period_6">1星期</string>
-    <string name="sms_period_7">最长</string>
+    <string name="sms_period_2">12小时</string>
+    <string name="sms_period_3">24小时</string>
+    <string name="sms_period_4">1周</string>
+    <string name="sms_period_5">1月</string>
+    <string name="sms_period_6">最长</string>
     <string name="open">开</string>
     <string name="close">关</string>
+    <string name="phone_first">手机优先</string>
+    <string name="sim_first">SIM卡优先</string>
 </resources>
