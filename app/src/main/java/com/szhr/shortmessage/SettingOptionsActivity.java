@@ -36,13 +36,6 @@ public class SettingOptionsActivity extends BaseListActivity {
                 getString(R.string.sms_period_7)
         };
 
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        items.clear();
-
         int smsType = SharedPrefsUtils.getIntegerPreference(this,
                 Constants.SMS_TYPE, 3);
         int smsPeriod = SharedPrefsUtils.getIntegerPreference(this,
@@ -54,20 +47,34 @@ public class SettingOptionsActivity extends BaseListActivity {
         addListItem(getString(R.string.validity_period), periods[smsPeriod]);
 
         setIndicatorType(INDICATOR_TYPE_INDEX);
+
     }
+
 
     @Override
     protected void onClickListItem(View view, int position) {
+        Intent intent = new Intent();
+
         switch (position) {
             case 0:
-                startActivity(new Intent(this, EditSmscActivity.class));
+                intent.setClass(this, EditSmscActivity.class);
                 break;
             case 1:
-                startActivity(new Intent(this, MsgTypesActivity.class));
+                intent.setClass(this, MsgTypesActivity.class);
                 break;
             case 2:
-                startActivity(new Intent(this, SmsValidityPeriodActivity.class));
+                intent.setClass(this, SmsValidityPeriodActivity.class);
                 break;
+        }
+
+        startActivityForResult(intent, position);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            String extra = data.getStringExtra(ITEM_EXTRA);
+            changeExtra(requestCode, extra);
         }
     }
 }

@@ -120,6 +120,12 @@ public class BaseListActivity extends BaseActivity {
         notifyDataSetChanged();
     }
 
+    protected void changeExtra(int position, String extra) {
+        Map<String, String> item = (Map<String, String>) adapter.getItem(position);
+        item.put(ITEM_EXTRA, extra);
+        notifyDataSetChanged();
+    }
+
     protected void onClickListItem(View view, int position) {
         // Empty implementation
     }

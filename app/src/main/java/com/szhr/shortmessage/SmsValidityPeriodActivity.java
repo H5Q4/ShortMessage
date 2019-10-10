@@ -1,5 +1,6 @@
 package com.szhr.shortmessage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -9,11 +10,13 @@ import com.szhr.shortmessage.util.SharedPrefsUtils;
 
 public class SmsValidityPeriodActivity extends BaseListActivity {
 
+    private String[] periods;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String[] periods = {
+        periods = new String[]{
                 getString(R.string.sms_period_1),
                 getString(R.string.sms_period_2),
                 getString(R.string.sms_period_3),
@@ -35,6 +38,9 @@ public class SmsValidityPeriodActivity extends BaseListActivity {
     @Override
     protected void onClickListItem(View view, int position) {
         SharedPrefsUtils.setIntegerPreference(this, Constants.SMS_VALIDITY_PERIOD, position);
+        Intent intent = new Intent();
+        intent.putExtra(ITEM_EXTRA, periods[position]);
+        setResult(RESULT_OK, intent);
         finish();
     }
 }

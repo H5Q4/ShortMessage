@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.szhr.shortmessage.base.BaseListActivity;
+import com.szhr.shortmessage.util.Constants;
+import com.szhr.shortmessage.util.SharedPrefsUtils;
 
 public class SettingsActivity extends BaseListActivity {
 
@@ -14,14 +16,14 @@ public class SettingsActivity extends BaseListActivity {
 
         setTitle(getString(R.string.sms_settings));
 
-        String[] menus = {
-                getString(R.string.setting_option),
-                getString(R.string.status_report),
-                getString(R.string.storage_location),
-                getString(R.string.storage_status)
-        };
+        boolean toggleReport = SharedPrefsUtils.getBooleanPreference(this,
+                Constants.SMS_DELIVERY_REPORT_MODE, false);
+        String reportExtra = toggleReport ? getString(R.string.open) : getString(R.string.close);
 
-        setListData(menus);
+        addListItem(getString(R.string.setting_option));
+        addListItem(getString(R.string.status_report), reportExtra);
+        addListItem(getString(R.string.storage_location));
+        addListItem(getString(R.string.storage_status));
 
         setIndicatorType(INDICATOR_TYPE_CYCLE);
     }
@@ -32,12 +34,23 @@ public class SettingsActivity extends BaseListActivity {
             case 0:
                 startActivity(new Intent(this, SettingOptionsActivity.class));
                 break;
+            case 1:
+                startActivityForResult(new Intent(this, ReportToggleActivity.class), position);
+                break;
             case 3:
                 startActivity(new Intent(this, StorageStateActivity.class));
                 break;
             default:
 
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            String extra = data.getStringExtra(ITEM_EXTRA);
+            changeExtra(requestCode, extra);
         }
     }
 }
