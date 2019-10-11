@@ -22,7 +22,7 @@ public class BroadcastOptionsActivity extends BaseListActivity {
         addListItem(getString(R.string.receive_broadcast), receiveBc ? getString(R.string.open) :
                 getString(R.string.close));
         addListItem(getString(R.string.channel));
-        addListItem(getString(R.string.language));
+        addListItem(getString(R.string.language), getString(R.string.all_langs));
         addListItem(getString(R.string.read));
 
         setIndicatorType(INDICATOR_TYPE_INDEX);
@@ -38,6 +38,7 @@ public class BroadcastOptionsActivity extends BaseListActivity {
             case 1:
                 break;
             case 2:
+                startActivity(new Intent(this, LanguageSelectionActivity.class));
                 break;
             case 3:
                 break;

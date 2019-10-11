@@ -59,4 +59,5 @@
     <string name="close">关</string>
     <string name="phone_first">手机优先</string>
     <string name="sim_first">SIM卡优先</string>
+    <string name="all_langs">所有语言</string>
 </resources>
