@@ -28,7 +28,10 @@ public class EditSmsActivity extends BaseActivity {
             contentEt.setText(content);
             contentEt.setSelection(content.length());
         }
+
+        centerTv.setText(getString(R.string.find));
     }
+
 
     @Override
     protected void onClickBottomLeft() {

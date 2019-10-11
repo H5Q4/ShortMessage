@@ -34,6 +34,8 @@ public class BaseActivity extends Activity {
 
     private static AlertDialog dialog;
 
+    private AsyncDialog asyncDialog;
+
 
 
     @Override
@@ -69,7 +71,19 @@ public class BaseActivity extends Activity {
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
         }
+
+        if (asyncDialog != null) {
+            asyncDialog.clearPendingProgressDialog();
+        }
         super.onDestroy();
+    }
+
+    protected AsyncDialog getAsyncDialog() {
+        if (asyncDialog == null) {
+            asyncDialog = new AsyncDialog(this);
+        }
+
+        return asyncDialog;
     }
 
     protected void setTitle(String title) {

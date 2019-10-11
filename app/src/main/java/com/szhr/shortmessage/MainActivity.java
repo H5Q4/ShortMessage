@@ -66,10 +66,11 @@ public class MainActivity extends BaseListActivity {
     public void askForContactPermission () {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED
-                    && checkSelfPermission(Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+                    && checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
 
                 // Should we show an explanation?
-                if (shouldShowRequestPermissionRationale(Manifest.permission.READ_CONTACTS)) {
+                if (shouldShowRequestPermissionRationale(Manifest.permission.READ_SMS) ||
+                        shouldShowRequestPermissionRationale(Manifest.permission.READ_CONTACTS)) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     builder.setTitle("SMS access needed");
                     builder.setPositiveButton(android.R.string.ok, null);
@@ -82,6 +83,7 @@ public class MainActivity extends BaseListActivity {
                                     new String[]
                                             {Manifest.permission.READ_SMS,
                                                     Manifest.permission.RECEIVE_SMS,
+                                                    Manifest.permission.READ_CONTACTS,
                                                     Manifest.permission.SEND_SMS}
                                     , PERMISSION_REQUEST_SMS);
                         }
@@ -99,6 +101,7 @@ public class MainActivity extends BaseListActivity {
                             new String[]
                                     {Manifest.permission.READ_SMS,
                                             Manifest.permission.RECEIVE_SMS,
+                                            Manifest.permission.READ_CONTACTS,
                                             Manifest.permission.SEND_SMS}
                             , PERMISSION_REQUEST_SMS);
 

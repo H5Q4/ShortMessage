@@ -1,13 +1,19 @@
 package com.szhr.shortmessage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.EditText;
 
 import com.szhr.shortmessage.base.BaseActivity;
 import com.szhr.shortmessage.model.Sms;
+import com.szhr.shortmessage.sms.SearchActivity;
 
 public class InputPhoneNoActivity extends BaseActivity {
+
+    public static final int REQUEST_CODE_CONTACT = 123;
+    public static final String KEY_NUMBER = "number";
 
     private EditText numberEt;
 
@@ -16,9 +22,24 @@ public class InputPhoneNoActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_phone_no);
 
+        centerTv.setVisibility(View.VISIBLE);
         centerTv.setText(R.string.find);
 
         numberEt = findViewById(R.id.numberEt);
+
+    }
+
+    @Override
+    protected void onClickDpadCenter() {
+        startActivityForResult(new Intent(this, SearchActivity.class), REQUEST_CODE_CONTACT);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE_CONTACT && resultCode == RESULT_OK) {
+            String number = data.getStringExtra(KEY_NUMBER);
+            numberEt.setText(number);
+        }
     }
 
     @Override

@@ -5,24 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:focusableInTouchMode="true"
-    tools:context=".InputPhoneNoActivity">
+    tools:context=".sms.SearchActivity">
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:textSize="24sp"
-        android:textColor="@android:color/white"
-        android:text="@string/input_phone_no"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/input_name"
+        android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/numberEt"
+        android:id="@+id/nameEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:inputType="number"
-        android:textColor="@android:color/white"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:textSize="24sp"/>
+
+
 
 </LinearLayout>
