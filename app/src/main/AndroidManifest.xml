@@ -36,8 +36,8 @@
         </activity>
         <activity android:name=".EditSmsActivity" />
         <activity android:name=".StorageStateActivity" />
-        <activity android:name=".sms.SearchActivity" />
-        <activity android:name=".sms.ContactsActivity" />
+        <activity android:name=".contact.SearchActivity" />
+        <activity android:name=".contact.ContactsActivity" />
     </application>
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />

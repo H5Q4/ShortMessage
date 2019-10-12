@@ -11,5 +11,5 @@ public class Sms implements Serializable {
     public Date date;
     public int type;
     public boolean fromSim;
-    public int status; // 1 - 已发送，2 - 未发送， 3 - 未查看， 4 - 已查看
+    public int status;
 }

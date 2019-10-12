@@ -1,24 +1,16 @@
-package com.szhr.shortmessage.sms;
+package com.szhr.shortmessage.contact;
 
-import android.content.ContentProviderOperation;
 import android.content.ContentResolver;
-import android.content.ContentUris;
-import android.content.ContentValues;
-import android.content.OperationApplicationException;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.RemoteException;
 import android.provider.ContactsContract.CommonDataKinds;
 import android.provider.ContactsContract.Contacts;
-import android.provider.ContactsContract.Data;
 import android.provider.ContactsContract.RawContacts;
 import android.text.TextUtils;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.provider.ContactsContract.AUTHORITY;
 
 public class ContactOperations {
     /**

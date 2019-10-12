@@ -1,7 +1,6 @@
-package com.szhr.shortmessage.sms;
+package com.szhr.shortmessage.contact;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 
@@ -9,8 +8,6 @@ import com.szhr.shortmessage.InputPhoneNoActivity;
 import com.szhr.shortmessage.R;
 import com.szhr.shortmessage.base.BaseListActivity;
 
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;

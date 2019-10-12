@@ -1,4 +1,4 @@
-package com.szhr.shortmessage.sms;
+package com.szhr.shortmessage.contact;
 
 import java.io.Serializable;
 
