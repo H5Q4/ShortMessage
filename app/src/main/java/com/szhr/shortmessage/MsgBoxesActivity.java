@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.szhr.shortmessage.base.BaseListActivity;
+import com.szhr.shortmessage.util.SmsOperations;
 
 public class MsgBoxesActivity extends BaseListActivity {
 

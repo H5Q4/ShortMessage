@@ -9,6 +9,7 @@ import android.widget.EditText;
 import com.szhr.shortmessage.base.BaseActivity;
 import com.szhr.shortmessage.model.Sms;
 import com.szhr.shortmessage.contact.SearchActivity;
+import com.szhr.shortmessage.util.SmsOperations;
 
 public class InputPhoneNoActivity extends BaseActivity {
 

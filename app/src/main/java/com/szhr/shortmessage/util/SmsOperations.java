@@ -1,4 +1,4 @@
-package com.szhr.shortmessage;
+package com.szhr.shortmessage.util;
 
 import android.app.PendingIntent;
 import android.content.ContentResolver;

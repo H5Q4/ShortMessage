@@ -5,8 +5,7 @@ import android.os.Bundle;
 import com.szhr.shortmessage.base.AsyncDialog;
 import com.szhr.shortmessage.base.ConfirmActivity;
 import com.szhr.shortmessage.model.Sms;
-
-import java.io.Serializable;
+import com.szhr.shortmessage.util.SmsOperations;
 
 public class DeleteSmsActivity extends ConfirmActivity {
 
