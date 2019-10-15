@@ -60,4 +60,5 @@
     <string name="sim_first">SIM卡优先</string>
     <string name="all_langs">所有语言</string>
     <string name="input_name">输入姓名：</string>
+    <string name="confirm">确定</string>
 </resources>
