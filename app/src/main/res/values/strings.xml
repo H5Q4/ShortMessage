@@ -66,4 +66,9 @@
     <string name="send">发送</string>
     <string name="op_completed">操作完成！</string>
     <string name="op_failed">操作失败</string>
+    <string name="send_success">发送成功</string>
+    <string name="send_fail">发送失败</string>
+    <string name="receive_success">成功接受</string>
+    <string name="receive_fail">接收失败</string>
+
 </resources>

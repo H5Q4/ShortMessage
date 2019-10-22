@@ -56,7 +56,7 @@ public class InputPhoneNoActivity extends BaseActivity {
         int type = getIntent().getIntExtra(SendOptionsActivity.SEND_OPTION, 0);
         switch (type) {
             case 0:
-                SmsOperations.sendMessage(this, number,body, false);
+                SmsSendingActivity.start(this, number, body, false);
                 break;
             case 1:
                 Sms sms = new Sms();
@@ -65,7 +65,7 @@ public class InputPhoneNoActivity extends BaseActivity {
                 SmsOperations.saveDraft(this, sms);
                 break;
             case 2:
-                SmsOperations.sendMessage(this, number, body, true);
+                SmsSendingActivity.start(this, number, body, true);
                 break;
         }
 

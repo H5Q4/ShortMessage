@@ -4,11 +4,11 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Instrumentation;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -30,9 +30,9 @@ public class BaseActivity extends Activity {
     protected TextView titleTv;
     protected TextView centerTv;
 
-    protected static Handler handler;
+    protected Handler handler;
 
-    private static AlertDialog dialog;
+    private AlertDialog dialog;
 
     private AsyncDialog asyncDialog;
 
@@ -52,9 +52,7 @@ public class BaseActivity extends Activity {
         rightIv = findViewById(R.id.rightIv);
         centerTv = findViewById(R.id.centerTv);
 
-        if (handler == null) {
-            handler = new BaseHandler(this);
-        }
+        handler = new BaseHandler(this);
 
         setTitle(getString(R.string.app_name));
         leftTv.setText(R.string.accept);
@@ -70,10 +68,12 @@ public class BaseActivity extends Activity {
     protected void onDestroy() {
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
+            handler = null;
         }
 
         if (asyncDialog != null) {
             asyncDialog.clearPendingProgressDialog();
+            asyncDialog = null;
         }
         super.onDestroy();
     }
@@ -168,15 +168,23 @@ public class BaseActivity extends Activity {
         }
     }
 
+    protected void handleSelfMessage(Message message) {}
+
 
     private static class BaseHandler extends Handler {
 
-        private WeakReference<Context> ctxRef;
+        private WeakReference<BaseActivity> ctxRef;
 
-        BaseHandler(Context context) {
+        BaseHandler(BaseActivity context) {
             ctxRef = new WeakReference<>(context);
         }
 
+        @Override
+        public void handleMessage(Message msg) {
+            if (ctxRef.get() != null) {
+                ctxRef.get().handleSelfMessage(msg);
+            }
+        }
     }
 
 }

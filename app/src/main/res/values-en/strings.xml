@@ -67,4 +67,9 @@
     <string name="send">Send</string>
     <string name="op_completed">Completed!</string>
     <string name="op_failed">Failed!</string>
+    <string name="send_success">Sent!</string>
+    <string name="send_fail">Fail!</string>
+    <string name="receive_success">Received!</string>
+    <string name="receive_fail">Not received!</string>
+
 </resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <!-- 添加多帧 -->
+    <item android:drawable="@drawable/sms_sending_1" android:duration="200"/>
+    <item android:drawable="@drawable/sms_sending_2" android:duration="180"/>
+    <item android:drawable="@drawable/sms_sending_3" android:duration="120"/>
+
+</animation-list>

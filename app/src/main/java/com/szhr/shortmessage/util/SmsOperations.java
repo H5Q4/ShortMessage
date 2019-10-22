@@ -17,6 +17,8 @@ import java.util.Date;
 import java.util.List;
 
 public class SmsOperations {
+    public static final String ACTION_SMS_SEND = "SmsOperations.sms.send";
+    public static final String ACTION_SMS_DELIVERY = "SmsOperations.sms.delivery";
 
     public static class Folder {
         public static final String INBOX = "inbox";
@@ -29,9 +31,9 @@ public class SmsOperations {
         List<String> messages = sms.divideMessage(message);
         for (String msg : messages) {
             PendingIntent sentIntent = PendingIntent.getBroadcast(context, 0,
-                    new Intent("SMS_SENT"), 0);
+                    new Intent(ACTION_SMS_SEND), 0);
             PendingIntent deliveredIntent = PendingIntent.getBroadcast(context, 0,
-                    new Intent("SMS_DELIVERED"), 0);
+                    new Intent(ACTION_SMS_DELIVERY), 0);
 
             if (persist) {
                 sms.sendTextMessage(phone, null, msg, sentIntent, deliveredIntent);
