@@ -49,7 +49,7 @@ public class MsgListActivity extends BaseListActivity {
 
         for (Sms sms : smsList) {
             Map<String, String> item = new HashMap<>();
-            item.put(ITEM_NAME, sms.sender);
+            item.put(ITEM_NAME, sms.address);
             items.add(item);
         }
 

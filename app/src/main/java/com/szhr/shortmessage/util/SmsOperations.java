@@ -85,7 +85,7 @@ public class SmsOperations {
                 for (int j = 0; j < totalSMS; j++) {
                     int id = c.getInt(c.getColumnIndexOrThrow(Telephony.Sms._ID));
                     String smsDate = c.getString(c.getColumnIndexOrThrow(Telephony.Sms.DATE));
-                    String sender = c.getString(c.getColumnIndexOrThrow(Telephony.Sms.ADDRESS));
+                    String address = c.getString(c.getColumnIndexOrThrow(Telephony.Sms.ADDRESS));
                     String body = c.getString(c.getColumnIndexOrThrow(Telephony.Sms.BODY));
                     int status = c.getInt(c.getColumnIndexOrThrow(Telephony.Sms.STATUS));
                     int type = c.getInt(c.getColumnIndexOrThrow(Telephony.Sms.TYPE));
@@ -99,12 +99,13 @@ public class SmsOperations {
 
                     Sms sms = new Sms();
                     sms.id = id;
-                    sms.sender = sender;
+                    sms.address = address;
                     sms.content = body;
                     sms.date = dateFormat;
                     sms.status = status;
                     sms.type = type;
-                    // TODO determine sms.fromSim
+                    sms.fromSim = (sms.status == SmsManager.STATUS_ON_ICC_READ ||
+                            sms.status == SmsManager.STATUS_ON_ICC_SENT);
                     result.add(sms);
 
                     c.moveToNext();
@@ -123,7 +124,7 @@ public class SmsOperations {
         //Store the message in the draft folder so that it shows in Messaging apps.
         ContentValues values = new ContentValues();
         // Message address.
-        values.put("address", sms.sender);
+        values.put("address", sms.address);
         // Message body.
         values.put("body", sms.content);
         // Date of the draft message.

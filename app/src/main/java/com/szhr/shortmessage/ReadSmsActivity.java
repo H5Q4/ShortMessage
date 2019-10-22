@@ -28,7 +28,7 @@ public class ReadSmsActivity extends BaseActivity {
 
         sms = (Sms) getIntent().getSerializableExtra(KEY_SMS);
         contentTv.setText(sms.content);
-        numberTv.setText(sms.sender);
+        numberTv.setText(sms.address);
     }
 
     @Override

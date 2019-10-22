@@ -61,7 +61,7 @@ public class InputPhoneNoActivity extends BaseActivity {
             case 1:
                 Sms sms = new Sms();
                 sms.content = body;
-                sms.receiver = number;
+                sms.address = number;
                 SmsOperations.saveDraft(this, sms);
                 break;
             case 2:
