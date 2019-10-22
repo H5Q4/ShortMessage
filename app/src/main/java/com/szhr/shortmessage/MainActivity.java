@@ -52,6 +52,9 @@ public class MainActivity extends BaseListActivity {
             case 2:
                 startActivity(new Intent(this, VoiceMsgOptionActivity.class));
                 break;
+            case 3:
+                startActivity(new Intent(this, TemplateActivity.class));
+                break;
             case 4:
                 startActivity(new Intent(this, SettingsActivity.class));
                 break;

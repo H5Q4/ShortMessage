@@ -61,4 +61,9 @@
     <string name="all_langs">所有语言</string>
     <string name="input_name">输入姓名：</string>
     <string name="confirm">确定</string>
+
+    <string name="add">添加</string>
+    <string name="send">发送</string>
+    <string name="op_completed">操作完成！</string>
+    <string name="op_failed">操作失败</string>
 </resources>
