@@ -7,4 +7,5 @@ public class Constants {
     public static final String SMS_STORE_CARD           = "pref_key_sms_store_card";
 
     public static final String SMS_BROADCAST_MODE = "pref_key_sms_broadcast";
+    public static final String SMS_VOICE_MAIL_NUMBER = "pref_key_voice_mail_number";
 }

@@ -72,4 +72,6 @@
     <string name="receive_success">Received!</string>
     <string name="receive_fail">Not received!</string>
 
+    <string name="input_voice_mail_no">Input digits：</string>
+
 </resources>

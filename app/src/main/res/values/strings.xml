@@ -71,4 +71,6 @@
     <string name="receive_success">成功接受</string>
     <string name="receive_fail">接收失败</string>
 
+    <string name="input_voice_mail_no">输入语音信箱号码：</string>
+
 </resources>

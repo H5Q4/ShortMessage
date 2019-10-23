@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/HrAppTheme">
-        <activity android:name=".SmsSendingActivity"></activity>
+        <activity android:name=".EditVoiceMailNumberActivity"></activity>
+        <activity android:name=".SmsSendingActivity" />
         <activity android:name=".TemplateOptionsActivity" />
         <activity android:name=".EditTemplateActivity" />
         <activity android:name=".TemplateActivity" />
@@ -45,12 +46,12 @@
         <activity android:name=".DeleteTplActivity" /> <!-- Message Template Content Provider -->
         <provider
             android:name=".util.TemplatesProvider"
-            android:authorities="com.android.mms"></provider>
+            android:authorities="com.android.mms" />
     </application>
-    <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-
     <uses-permission android:name="android.permission.READ_SMS" />
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
 </manifest>
